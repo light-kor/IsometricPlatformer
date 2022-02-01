@@ -222,6 +222,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ApplicationExit"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e60b710-2986-41d1-9452-6f707cf07f45"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -233,6 +242,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Mouse and Keyboard"",
                     ""action"": ""ResetLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""20842d04-0630-41ce-8e7b-2e7b6ae90838"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ApplicationExit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -267,6 +287,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         // General
         m_General = asset.FindActionMap("General", throwIfNotFound: true);
         m_General_ResetLevel = m_General.FindAction("ResetLevel", throwIfNotFound: true);
+        m_General_ApplicationExit = m_General.FindAction("ApplicationExit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -384,11 +405,13 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_General;
     private IGeneralActions m_GeneralActionsCallbackInterface;
     private readonly InputAction m_General_ResetLevel;
+    private readonly InputAction m_General_ApplicationExit;
     public struct GeneralActions
     {
         private @PlayerInput m_Wrapper;
         public GeneralActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @ResetLevel => m_Wrapper.m_General_ResetLevel;
+        public InputAction @ApplicationExit => m_Wrapper.m_General_ApplicationExit;
         public InputActionMap Get() { return m_Wrapper.m_General; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -401,6 +424,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @ResetLevel.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnResetLevel;
                 @ResetLevel.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnResetLevel;
                 @ResetLevel.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnResetLevel;
+                @ApplicationExit.started -= m_Wrapper.m_GeneralActionsCallbackInterface.OnApplicationExit;
+                @ApplicationExit.performed -= m_Wrapper.m_GeneralActionsCallbackInterface.OnApplicationExit;
+                @ApplicationExit.canceled -= m_Wrapper.m_GeneralActionsCallbackInterface.OnApplicationExit;
             }
             m_Wrapper.m_GeneralActionsCallbackInterface = instance;
             if (instance != null)
@@ -408,6 +434,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @ResetLevel.started += instance.OnResetLevel;
                 @ResetLevel.performed += instance.OnResetLevel;
                 @ResetLevel.canceled += instance.OnResetLevel;
+                @ApplicationExit.started += instance.OnApplicationExit;
+                @ApplicationExit.performed += instance.OnApplicationExit;
+                @ApplicationExit.canceled += instance.OnApplicationExit;
             }
         }
     }
@@ -431,5 +460,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     public interface IGeneralActions
     {
         void OnResetLevel(InputAction.CallbackContext context);
+        void OnApplicationExit(InputAction.CallbackContext context);
     }
 }

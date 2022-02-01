@@ -49,7 +49,7 @@ public class LaserGun : MonoBehaviour
 
             if (hit.collider == _lastTarget)
             {
-                _buffer.TakeDamage(_damage / 30);
+                _buffer.TakeDamage(_damage * 10 * Time.deltaTime);
             }
             else if (hit.collider.gameObject.TryGetComponent(out Turret turret))
             {
