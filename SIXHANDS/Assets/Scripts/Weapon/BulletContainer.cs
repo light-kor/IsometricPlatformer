@@ -2,40 +2,43 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class BulletContainer : MonoBehaviour
+namespace Weapon
 {
-    [SerializeField] private Bullet _bulletPrefab;
-    [SerializeField] private int _bulletCount;
-
-    private List<Bullet> _pool = new List<Bullet>();
-
-    private void Start()
+    public class BulletContainer : MonoBehaviour
     {
-        InstantiateBullets(_bulletPrefab, _bulletCount);
-    }
+        [SerializeField] private Bullet _bulletPrefab;
+        [SerializeField] private int _bulletCount;
 
-    private void InstantiateBullets(Bullet prefab, int maxCount)
-    {
-        for (int i = 0; i < maxCount; i++)
+        private List<Bullet> _pool = new List<Bullet>();
+
+        private void Awake()
         {
-            Bullet spawnedBullet = Instantiate(prefab, transform);
-            spawnedBullet.gameObject.SetActive(false);
-            _pool.Add(spawnedBullet);
+            InstantiateBullets(_bulletPrefab, _bulletCount);
         }
-    }
 
-    private bool TryGetBullet(out Bullet result)
-    {
-        result = _pool.First(p => p.gameObject.activeSelf == false);
-        return result != null;
-    }
-
-    public void ReleaseBullet(Vector3 position, Vector3 direction)
-    {
-        if (TryGetBullet(out Bullet bullet))
+        private void InstantiateBullets(Bullet prefab, int maxCount)
         {
-            bullet.gameObject.SetActive(true);
-            bullet.SetTransform(position, direction);
+            for (var i = 0; i < maxCount; i++)
+            {
+                var spawnedBullet = Instantiate(prefab, transform);
+                spawnedBullet.gameObject.SetActive(false);
+                _pool.Add(spawnedBullet);
+            }
+        }
+
+        private bool TryGetBullet(out Bullet result)
+        {
+            result = _pool.First(p => p.gameObject.activeSelf == false);
+            return result != null;
+        }
+
+        public void ReleaseBullet(Vector3 position, Vector3 direction, float damage)
+        {
+            if (TryGetBullet(out Bullet bullet))
+            {
+                bullet.gameObject.SetActive(true);
+                bullet.InitBullet(position, direction, damage);
+            }
         }
     }
 }

@@ -1,25 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="bfaeb0c3-ecf8-4fdb-a50f-9dedcd33d374" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Shockwave.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Shockwave.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Teleporter Pad A.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Teleporter Pad A.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Teleporter Pad B.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Teleporter Pad B.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Teleporter Pad C.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Teleporter Pad C.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Teleporter Pad D.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Teleporter Pad D.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Teleporter Pad E.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Teleporter Pad E.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Teleporter Pad F.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Materials/Teleporter Pad F.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Prefabs/Teleporter Pad A.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Prefabs/Teleporter Pad A.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Prefabs/Teleporter Pad B.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Prefabs/Teleporter Pad B.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Prefabs/Teleporter Pad C.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Prefabs/Teleporter Pad C.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Prefabs/Teleporter Pad D.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Prefabs/Teleporter Pad D.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Prefabs/Teleporter Pad E.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Prefabs/Teleporter Pad E.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Prefabs/Teleporter Pad F.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AdditionalResources/Teleportation Pad/Prefabs/Teleporter Pad F.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InputActions/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputActions/PlayerInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Portal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SIXHANDS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SIXHANDS/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Crystal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Crystal.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Turret.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Turret.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Crystals/Crystal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Crystals/Crystal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Crystals/CrystalCollector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Crystals/CrystalCollector.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Crystals/CystalAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Crystals/CrystalAnimation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Crystals/CystalAnimation.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Crystals/CrystalAnimation.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Exit.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Exit.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Lift.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Lift.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Teleport.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Teleport.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Portal.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Health.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Magnet.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Magnet.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/MagnetAnimation.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/MagnetAnimation.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerStartPosition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerStartPosition.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Turret.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Turret/DestroyAnimation.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Turret/DestroyAnimation.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Turret/Turret.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Turret/Turret.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Turret/TurretGun.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Turret/TurretGun.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Turret/TurretHealthBar.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Turret/TurretHealthBar.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/BulletDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/BulletDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/CrystalDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/CrystalDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/EndGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/EndGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/HealthDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/HealthDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/LaserChargeDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/LaserChargeDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MagnetButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MagnetButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ResetGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ResetGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon/BulletContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon/BulletContainer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon/LaserGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon/LaserGun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon/SimpleGun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon/SimpleGun.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/magnet (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/magnet (1).png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +74,73 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Health.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapon/LaserGun.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/InputSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapon/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapon/SimpleGun.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerStartPosition.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapon/BulletContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ResetGame.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/AdditionalResources/ForceShield/Script/LaserBullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/HealthDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelObjects/Lift.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Turrets/Turret.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Turrets/DestroyAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/EndGame.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Turrets/TurretHealthBar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelObjects/Portal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/BulletDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Turrets/TurretGun.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crystals/CrystalCollector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MagnetButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crystals/Crystal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LaserChargeDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Crystals/CrystalAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/CrystalDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapon/MagnetAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapon/Magnet.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Crystals/Crystal.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Crystals/CystalAnimation.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Crystals/CrystalAnimation.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Lift.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Teleport.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LevelObjects/Portal.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/MagnetAnimation.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerStartPosition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Magnet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapon/MagnetAnimation.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Turret/TurretHealthBar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Turret/Turret.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Turrets/DestroyAnimation.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapon/Magnet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapon/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/HealthDisplay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Turrets/Turret.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapon/BulletContainer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapon/SimpleGun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Turrets/TurretGun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/BulletDisplay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapon/LaserGun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/LaserChargeDisplay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/CrystalDisplay.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/MagnetButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/ResetGame.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/InputSystem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Turrets/TurretHealthBar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/EndGame.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Health.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Crystals/CrystalCollector.cs" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="2Id4i4OhFnijWwqKrv2w0uhvvlN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -36,6 +148,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -65,11 +178,41 @@
       <option name="presentableId" value="Default" />
       <updated>1670498251027</updated>
       <workItem from="1670498256094" duration="6000" />
+      <workItem from="1670498746938" duration="9669000" />
     </task>
     <servers />
   </component>
-  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2012" y="92" width="1736" height="848" key="VCS.FileHistoryDialog" timestamp="1670507208421">
+      <screen x="1920" y="0" width="1920" height="1032" />
+    </state>
+    <state x="2012" y="92" width="1736" height="848" key="VCS.FileHistoryDialog/0.0.1920.1032/1920.0.1920.1032@1920.0.1920.1032" timestamp="1670507208421" />
+    <state x="2541" y="251" width="678" height="530" key="find.popup" timestamp="1670508158001">
+      <screen x="1920" y="0" width="1920" height="1032" />
+    </state>
+    <state x="2541" y="251" width="678" height="530" key="find.popup/0.0.1920.1032/1920.0.1920.1032@1920.0.1920.1032" timestamp="1670508158001" />
+    <state x="2543" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1670506984912">
+      <screen x="1920" y="0" width="1920" height="1032" />
+    </state>
+    <state x="2543" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032/1920.0.1920.1032@1920.0.1920.1032" timestamp="1670506984912" />
   </component>
 </project>

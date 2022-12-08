@@ -3,60 +3,64 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Weapon;
 
-public class MagnetButton : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private TMP_Text _text;
-    [SerializeField] private Button _button;
-    [SerializeField] private Magnet _magnet;
-
-    private Coroutine _coroutine;
-
-    private void Start()
+    public class MagnetButton : MonoBehaviour
     {
-        ResetGame.ResetLevel += ResetButton;
-        _magnet.DisableUIButton += StartTimer;
-        ResetButton();
-    }
+        [SerializeField] private TMP_Text _text;
+        [SerializeField] private Button _button;
+        [SerializeField] private Magnet _magnet;
 
-    private void StartTimer(float time)
-    {
-        _button.interactable = false;
-        _text.gameObject.SetActive(true);
+        private Coroutine _coroutine;
 
-        if (_coroutine != null)
-            StopCoroutine(_coroutine);
-
-        _coroutine = StartCoroutine(Countdown(time));
-    }
-
-    private IEnumerator Countdown(float time)
-    {
-        double progress = time;
-
-        while (progress > 0)
+        private void Start()
         {
-            progress -= Time.deltaTime;
-            _text.text = Math.Round(progress, 1).ToString();
-            yield return null;
+            ResetGame.ResetLevel += ResetButton;
+            _magnet.SetButtonCooldown += StartTimer;
+            ResetButton();
         }
 
-        _button.interactable = true;
-        _text.gameObject.SetActive(false);
-    }
+        private void StartTimer(float time)
+        {
+            _button.interactable = false;
+            _text.gameObject.SetActive(true);
 
-    private void ResetButton()
-    {
-        if (_coroutine != null)
-            StopCoroutine(_coroutine);
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
 
-        _button.interactable = true;
-        _text.gameObject.SetActive(false);
-    }
+            _coroutine = StartCoroutine(Countdown(time));
+        }
 
-    private void OnDestroy()
-    {
-        ResetGame.ResetLevel -= ResetButton;
-        _magnet.DisableUIButton -= StartTimer;
+        private IEnumerator Countdown(float time)
+        {
+            double progress = time;
+
+            while (progress > 0)
+            {
+                progress -= Time.deltaTime;
+                _text.text = Math.Round(progress).ToString();
+                yield return null;
+            }
+
+            _button.interactable = true;
+            _text.gameObject.SetActive(false);
+        }
+
+        private void ResetButton()
+        {
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+
+            _button.interactable = true;
+            _text.gameObject.SetActive(false);
+        }
+
+        private void OnDestroy()
+        {
+            ResetGame.ResetLevel -= ResetButton;
+            _magnet.SetButtonCooldown -= StartTimer;
+        }
     }
 }

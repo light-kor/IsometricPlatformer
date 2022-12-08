@@ -1,37 +1,39 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private float _moveSpeed;
-    [SerializeField] private float _rotateSpeed;
-
-    private Vector2 _moveDirection;
-
-    private void Update()
+    public class PlayerMovement : MonoBehaviour
     {
-        _moveDirection = InputSystem.Input.Player.Move.ReadValue<Vector2>();
+        [SerializeField] private Rigidbody _rigidbody;
+        [SerializeField] private float _moveSpeed;
+        [SerializeField] private float _rotateSpeed;
+        private Vector2 _moveDirection;
 
-        if (_moveDirection != Vector2.zero)
+        private void Update()
         {
-            Move(new Vector3(_moveDirection.x, 0, _moveDirection.y));
-            //Move(_moveDirection.x, _moveDirection.y);
+            _moveDirection = InputSystem.ReadMoveValue();
+
+            if (_moveDirection != Vector2.zero)
+            {
+                Move(new Vector3(_moveDirection.x, 0, _moveDirection.y));
+                //Move(_moveDirection.x, _moveDirection.y);
+            }
         }
-    }
 
-    public void Move(Vector3 direction)
-    {
-        Vector3 offset = _moveSpeed * Time.deltaTime * direction;
-        _rigidbody.MovePosition(_rigidbody.position + offset);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * _rotateSpeed);
-    }
+        private void Move(Vector3 direction)
+        {
+            var offset = _moveSpeed * Time.deltaTime * direction;
+            _rigidbody.MovePosition(_rigidbody.position + offset);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * _rotateSpeed);
+        }
 
-    // Второй тип управления
-    public void Move(float XAxis, float YAxis)
-    {
-        float moving = _moveSpeed * Time.deltaTime * YAxis;
+        // Second type of movement
+        private void Move(float axisX, float axisY)
+        {
+            var moving = _moveSpeed * Time.deltaTime * axisY;
 
-        _rigidbody.MovePosition(_rigidbody.position + transform.forward * moving);
-        transform.rotation *= Quaternion.Euler(0f, XAxis * 50f * _rotateSpeed * Time.deltaTime, 0f);
+            _rigidbody.MovePosition(_rigidbody.position + transform.forward * moving);
+            transform.rotation *= Quaternion.Euler(0f, axisX * 50f * _rotateSpeed * Time.deltaTime, 0f);
+        }
     }
 }

@@ -1,29 +1,27 @@
+using System;
+using Player;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class Crystal : MonoBehaviour
+namespace Crystals
 {
-    private CrystalCollector _collector;
-    private Rigidbody _rigidbody;
-
-    private void Awake()
+    [RequireComponent(typeof(Rigidbody))]
+    public class Crystal : MonoBehaviour
     {
-        _collector = GetComponentInParent<CrystalCollector>();
-        _rigidbody = GetComponent<Rigidbody>();
-    }
+        public static Action<Crystal> CollectCrystal;
+        [SerializeField] private Rigidbody _rigidbody;
 
-    public void MoveToTarget(Vector3 target, float force)
-    {
-        Vector3 pos = Vector3.Lerp(transform.position, target, Time.deltaTime * force);
-        _rigidbody.MovePosition(pos);
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.TryGetComponent(out Player player))
+        public void MoveToTarget(Vector3 target, float force)
         {
-            _collector.Collect();
-            gameObject.SetActive(false);
+            var pos = Vector3.Lerp(transform.position, target, Time.deltaTime * force);
+            _rigidbody.MovePosition(pos);
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.TryGetComponent(out PlayerStartPosition player))
+            {
+                CollectCrystal?.Invoke(this);
+            }
         }
     }
 }

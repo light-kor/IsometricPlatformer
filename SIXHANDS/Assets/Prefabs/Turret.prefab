@@ -692,7 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3fa26300ac41b4ebf63000dc2a1bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _StartHealthCount: 35
+  _startHealthValue: 35
 --- !u!114 &3067463374417042995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,6 +710,7 @@ MonoBehaviour:
   _shotsInLine: 3
   _timeBetweenShots: 0.2
   _timeBetweenLines: 1.5
+  _damage: 10
 --- !u!114 &1558920936147458981
 MonoBehaviour:
   m_ObjectHideFlags: 0

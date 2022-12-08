@@ -1,50 +1,55 @@
+using System;
+using UI;
 using UnityEngine;
-using UnityEngine.Events;
+using Weapon;
 
-public class Health : MonoBehaviour
+namespace Player
 {
-    public UnityAction<int, int> HealthChanged;
-    public UnityAction<bool> Death;
-
-    [SerializeField] private int _startHealth = 10;
-    private int _healthCount;
-    private bool _isDead = false;
-
-    private void Start()
+    public class Health : MonoBehaviour
     {
-        ResetGame.ResetLevel += ResetHealth;
-        ResetHealth();
-    }
+        public Action<float, float> HealthChanged;
+        public Action Death;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.TryGetComponent(out Bullet bullet))
+        [SerializeField] private float _startHealthValue = 50;
+        private float _healthValue;
+
+        private void Start()
         {
-            TakeDamage();
-            bullet.gameObject.SetActive(false);
+            ResetGame.ResetLevel += ResetHealth;
+            ResetHealth();
         }
-    }
 
-    public void TakeDamage()
-    {
-        _healthCount--;
-        HealthChanged?.Invoke(_healthCount, _startHealth);
-        ChechHealth();
-    }
-
-    public void ChechHealth()
-    {
-        if (!_isDead && _healthCount <= 0)
+        private void OnCollisionEnter(Collision collision)
         {
-            _isDead = true;
-            Death?.Invoke(false);
+            if (collision.gameObject.TryGetComponent(out Bullet bullet))
+            {
+                TakeDamage(bullet.Damage);
+                bullet.ResetBullet();
+            }
         }
-    }
 
-    private void ResetHealth()
-    {
-        _healthCount = _startHealth;
-        HealthChanged?.Invoke(_healthCount, _startHealth);
-        _isDead = false;
+        private void TakeDamage(float damage)
+        {
+            _healthValue -= damage;
+            HealthChanged?.Invoke(_healthValue, _startHealthValue);
+            CheckHealth();
+        }
+
+        private void CheckHealth()
+        {
+            if (_healthValue > 0) return;
+            Death?.Invoke();
+        }
+
+        private void ResetHealth()
+        {
+            _healthValue = _startHealthValue;
+            HealthChanged?.Invoke(_healthValue, _startHealthValue);
+        }
+
+        private void OnDestroy()
+        {
+            ResetGame.ResetLevel -= ResetHealth;
+        }
     }
 }

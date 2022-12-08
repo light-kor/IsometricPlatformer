@@ -1,23 +1,27 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Weapon;
 
-public class LaserChargeDisplay : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private LaserGun _laser;
-    [SerializeField] private Slider _bar;
-
-    void Awake()
+    public class LaserChargeDisplay : MonoBehaviour
     {
-        _laser.ChargeChanged += UpdateChargeDisplay;
-    }
+        [SerializeField] private Slider _bar;
+        [SerializeField] private LaserGun _laserGun;
 
-    private void UpdateChargeDisplay(float value)
-    {
-        _bar.value = value;
-    }
+        private void Awake()
+        {
+            _laserGun.ChargeChanged += UpdateChargeDisplay;
+        }
 
-    private void OnDestroy()
-    {
-        _laser.ChargeChanged -= UpdateChargeDisplay;
+        private void UpdateChargeDisplay(float value)
+        {
+            _bar.value = value;
+        }
+
+        private void OnDestroy()
+        {
+            _laserGun.ChargeChanged -= UpdateChargeDisplay;
+        }
     }
 }

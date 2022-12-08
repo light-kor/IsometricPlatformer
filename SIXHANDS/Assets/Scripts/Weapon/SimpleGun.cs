@@ -1,36 +1,38 @@
+using System;
 using DG.Tweening;
+using UI;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class SimpleGun : MonoBehaviour
+namespace Weapon
 {
-    public UnityAction<int> AmmoInClip;
-    public UnityAction Reload;
-
-    [SerializeField] private Transform _shootPoint;
-    [SerializeField] private BulletContainer _bullets;
-
-    [Header("Settings")]
-    [SerializeField] private int _maxAmmo;
-    [SerializeField] private float _reloadTime;
-
-    private Sequence _sequence;
-    private int _ammo;
-    private bool _canShoot;
-
-    private void Start()
+    public class SimpleGun : MonoBehaviour
     {
-        InputSystem.Input.Player.SimpleShot.performed += ctx => Shoot();
-        ResetGame.ResetLevel += ResetGun;
+        public Action<int> AmmoInClip;
+        public Action Reload;
 
-        ResetGun();
-    }
+        [SerializeField] private Transform _shootPoint;
+        [SerializeField] private BulletContainer _bulletContainer;
+        [Header("Settings")]
+        [SerializeField] private int _maxAmmo;
+        [SerializeField] private float _reloadTime;
+        [SerializeField] private float _damage;
 
-    private void Shoot()
-    {
-        if (_canShoot)
+        private Sequence _sequence;
+        private int _ammo;
+        private bool _canShoot;
+
+        private void Start()
         {
-            _bullets.ReleaseBullet(_shootPoint.position, transform.forward);
+            InputSystem.SimpleShot += Shoot;
+            ResetGame.ResetLevel += ResetGun;
+            ResetGun();
+        }
+
+        private void Shoot()
+        {
+            if (!_canShoot) return;
+            
+            _bulletContainer.ReleaseBullet(_shootPoint.position, transform.forward, _damage);
             _ammo--;
             AmmoInClip?.Invoke(_ammo);
 
@@ -39,25 +41,26 @@ public class SimpleGun : MonoBehaviour
                 _canShoot = false;
                 ReloadGun();
             }
+        } 
+
+        private void ReloadGun()
+        {
+            _sequence = DOTween.Sequence();
+            _sequence.AppendInterval(_reloadTime);
+            _sequence.AppendCallback(() => ResetGun());
         }
-    } 
 
-    private void ReloadGun()
-    {
-        _sequence = DOTween.Sequence();
-        _sequence.AppendInterval(_reloadTime);
-        _sequence.AppendCallback(() => ResetGun());
-    }
+        private void ResetGun()
+        {
+            _canShoot = true;
+            _ammo = _maxAmmo;
+            Reload?.Invoke();
+        }
 
-    private void ResetGun()
-    {
-        _canShoot = true;
-        _ammo = _maxAmmo;
-        Reload?.Invoke();
-    }
-
-    private void OnDestroy()
-    {
-        ResetGame.ResetLevel -= ResetGun;
+        private void OnDestroy()
+        {
+            InputSystem.SimpleShot -= Shoot;
+            ResetGame.ResetLevel -= ResetGun;
+        }
     }
 }

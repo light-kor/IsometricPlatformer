@@ -1,109 +1,121 @@
+using System;
 using System.Collections;
+using Turrets;
+using UI;
 using UnityEngine;
-using UnityEngine.Events;
 
-[RequireComponent(typeof(LineRenderer))]
-public class LaserGun : MonoBehaviour
+namespace Weapon
 {
-    public UnityAction<float> ChargeChanged;
-
-    [SerializeField] private Transform _shootPoint;
-    [SerializeField] private LineRenderer _lineRenderer;
-
-    [Header("Settings")]
-    [SerializeField] private float _workTime = 1.5f;
-    [SerializeField] private float _cooldownTime = 10f;
-    [SerializeField] private float _damage;
-
-    private Coroutine _coroutine;
-    private bool _using;
-    private Turret _buffer;
-    private Collider _lastTarget;
-
-    private const float MaxLaserRange = 50f;
-
-    private void Start()
+    [RequireComponent(typeof(LineRenderer))]
+    public class LaserGun : MonoBehaviour
     {
-        InputSystem.Input.Player.LaserShot.performed += ctx => TryStartShooting();
-        ResetGame.ResetLevel += ResetGun;
-        _lineRenderer.positionCount = 2;
-        ResetGun();
-    }
+        public Action<float> ChargeChanged;
+        [SerializeField] private Transform _shootPoint;
+        [SerializeField] private LineRenderer _lineRenderer;
 
-    private void TryStartShooting()
-    {
-        if (_using == false)
-            _coroutine = StartCoroutine(ShootingCycle());
-    }
+        [Header("Settings")]
+        [SerializeField] private float _workTime = 1.5f;
+        [SerializeField] private float _cooldownTime = 10f;
+        [SerializeField] private float _damage;
 
-    private void Shoot()
-    {
-        Vector3 target;
+        private Coroutine _coroutine;
+        private Turret _buffer;
+        private Collider _lastTarget;
+        private float _laserCharge;
+        private bool _empty;
 
-        Ray ray = new Ray(transform.position, transform.forward);
-        //Debug.DrawRay(pos, transform.forward * 100, Color.yellow);
+        private const float MaxLaserRange = 50f;
 
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        private void Start()
         {
-            target = hit.point;
+            InputSystem.LaserShot += TryStartShooting;
+            ResetGame.ResetLevel += ResetGun;
+            _lineRenderer.positionCount = 2;
+            ResetGun();
+        }
 
-            if (hit.collider == _lastTarget)
+        private void TryStartShooting(bool state)
+        {
+            if (_empty) return;
+            
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+            
+            _coroutine = StartCoroutine(state ? Shooting() : ChargeRecovery());
+        }
+
+        private IEnumerator Shooting()
+        {
+            _lineRenderer.enabled = true;
+
+            while (_laserCharge > 0f)
             {
-                _buffer.TakeDamage(_damage * 10 * Time.deltaTime);
+                _laserCharge -= Time.deltaTime / _workTime;
+                Shoot();
+                ChargeChanged?.Invoke(_laserCharge);
+                yield return null;
             }
-            else if (hit.collider.gameObject.TryGetComponent(out Turret turret))
+
+            _empty = true;
+            _coroutine = StartCoroutine(ChargeRecovery());
+        }
+        
+        private IEnumerator ChargeRecovery()
+        {
+            _lineRenderer.enabled = false;
+
+            while (_laserCharge < 1f)
             {
-                _lastTarget = hit.collider;
-                _buffer = turret;
+                _laserCharge += Time.deltaTime / _cooldownTime;
+                ChargeChanged?.Invoke(_laserCharge);
+                yield return null;
             }
+            
+            _empty = false;
         }
-        else
-            target = transform.forward * MaxLaserRange;
-
-        _lineRenderer.SetPosition(0, _shootPoint.position);
-        _lineRenderer.SetPosition(1, target);
-    }
-
-    private IEnumerator ShootingCycle()
-    {
-        _lineRenderer.enabled = true;
-        _using = true;
-
-        float progress = 0f;
-
-        while (progress < 1f)
+        
+        private void Shoot()
         {
-            progress += Time.deltaTime / _workTime;
-            Shoot();
-            ChargeChanged?.Invoke(1 - progress);
-            yield return null;
+            Vector3 target;
+
+            var ray = new Ray(transform.position, transform.forward);
+            //Debug.DrawRay(pos, transform.forward * 100, Color.yellow);
+
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                target = hit.point;
+
+                if (hit.collider == _lastTarget)
+                {
+                    _buffer.TakeDamage(_damage * 10 * Time.deltaTime);
+                }
+                else if (hit.collider.gameObject.TryGetComponent(out Turret turret))
+                {
+                    _lastTarget = hit.collider;
+                    _buffer = turret;
+                }
+            }
+            else
+                target = transform.forward * MaxLaserRange;
+
+            _lineRenderer.SetPosition(0, _shootPoint.position);
+            _lineRenderer.SetPosition(1, target);
         }
-
-        _lineRenderer.enabled = false;
-        progress = 0f;
-
-        while (progress < 1f)
+        
+        private void ResetGun()
         {
-            progress += Time.deltaTime / _cooldownTime;
-            ChargeChanged?.Invoke(progress);
-            yield return null;
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+
+            _lineRenderer.enabled = false;
+            _laserCharge = 1f;
+            ChargeChanged?.Invoke(_laserCharge);
         }
 
-        _using = false;
-    }
-
-    private void ResetGun()
-    {
-        if (_coroutine != null)
-            StopCoroutine(_coroutine);
-
-        _lineRenderer.enabled = false;
-        _using = false;
-        ChargeChanged?.Invoke(1f);
-    }
-
-    private void OnDestroy()
-    {
-        ResetGame.ResetLevel -= ResetGun;
+        private void OnDestroy()
+        {
+            ResetGame.ResetLevel -= ResetGun;
+            InputSystem.LaserShot -= TryStartShooting;
+        }
     }
 }

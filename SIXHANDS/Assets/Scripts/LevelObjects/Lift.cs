@@ -1,30 +1,33 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class Lift : MonoBehaviour
+namespace LevelObjects
 {
-    [SerializeField] private float _distance;
-    [SerializeField] private float _duration;
-    [SerializeField] private float _delay;
-
-    private Sequence _sequence;
-    private float _startPositionY;
-
-    private void Start()
+    public class Lift : MonoBehaviour
     {
-        _startPositionY = transform.position.y;
-        Animation();
-    }
+        [SerializeField] private float _distance;
+        [SerializeField] private float _duration;
+        [SerializeField] private float _delay;
 
-    private void Animation()
-    {
-        _sequence = DOTween.Sequence();
+        private Sequence _sequence;
+        private float _startPositionY;
 
-        _sequence.AppendInterval(_delay);
-        _sequence.Append(transform.DOMoveY(_startPositionY + _distance, _duration));
-        _sequence.AppendInterval(_delay);
-        _sequence.Append(transform.DOMoveY(_startPositionY, _duration));
+        private void Start()
+        {
+            _startPositionY = transform.position.y;
+            StartAnimation();
+        }
 
-        _sequence.SetLoops(-1, LoopType.Restart);
+        private void StartAnimation()
+        {
+            _sequence = DOTween.Sequence();
+
+            _sequence.AppendInterval(_delay);
+            _sequence.Append(transform.DOMoveY(_startPositionY + _distance, _duration));
+            _sequence.AppendInterval(_delay);
+            _sequence.Append(transform.DOMoveY(_startPositionY, _duration));
+
+            _sequence.SetLoops(-1, LoopType.Restart);
+        }
     }
 }

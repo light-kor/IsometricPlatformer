@@ -1,23 +1,27 @@
+using Crystals;
 using TMPro;
 using UnityEngine;
 
-public class CrystalDisplay : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private TMP_Text _text;
-    [SerializeField] private CrystalCollector _collector;
-
-    void Awake()
+    public class CrystalDisplay : MonoBehaviour
     {
-        _collector.ValueChanged += UpdateCrystalDisplay;
-    }
+        [SerializeField] private TMP_Text _text;
+        [SerializeField] private CrystalCollector _crystalCollector;
 
-    private void UpdateCrystalDisplay(int value, int maxValue)
-    {
-        _text.text = $"{value}/{maxValue}";
-    }
+        private void Awake()
+        {
+            _crystalCollector.CrystalCountChanged += UpdateCrystalDisplay;
+        }
 
-    private void OnDestroy()
-    {
-        _collector.ValueChanged -= UpdateCrystalDisplay;
+        private void UpdateCrystalDisplay(int value, int maxValue)
+        {
+            _text.text = $"{value}/{maxValue}";
+        }
+
+        private void OnDestroy()
+        {
+            _crystalCollector.CrystalCountChanged -= UpdateCrystalDisplay;
+        }
     }
 }

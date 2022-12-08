@@ -1,46 +1,48 @@
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Weapon;
 
-public class BulletDisplay : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private SimpleGun _gun;
-    [SerializeField] private Color _available;
-    [SerializeField] private Color _used;
-
-    private Image[] _points;
-
-    private void Start()
+    public class BulletDisplay : MonoBehaviour
     {
-        _gun.AmmoInClip += UpdateBulletsDisplay;
-        _gun.Reload += ResetAll;
+        [SerializeField] private SimpleGun _gun;
+        [SerializeField] private Color _available;
+        [SerializeField] private Color _used;
+        private Image[] _points;
 
-        List<Image> pointsBuffer = GetComponentsInChildren<Image>().ToList();
-        pointsBuffer.RemoveAt(0);
-        _points = pointsBuffer.ToArray();
-        ResetAll();
-    }
-
-    private void UpdateBulletsDisplay(int availableCount)
-    {
-        for (int i = availableCount; i < _points.Length; i++)
+        private void Start()
         {
-            _points[i].color = _used;
-        }
-    }
+            _gun.AmmoInClip += UpdateBulletsDisplay;
+            _gun.Reload += ResetAll;
 
-    private void ResetAll()
-    {
-        foreach (Image point in _points)
+            var pointsBuffer = GetComponentsInChildren<Image>().ToList();
+            pointsBuffer.RemoveAt(0);
+            _points = pointsBuffer.ToArray();
+            ResetAll();
+        }
+
+        private void UpdateBulletsDisplay(int availableCount)
         {
-            point.color = _available;
+            for (var i = availableCount; i < _points.Length; i++)
+            {
+                _points[i].color = _used;
+            }
         }
-    }
 
-    private void OnDestroy()
-    {
-        _gun.AmmoInClip -= UpdateBulletsDisplay;
-        _gun.Reload -= ResetAll;
+        private void ResetAll()
+        {
+            foreach (var point in _points)
+            {
+                point.color = _available;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            _gun.AmmoInClip -= UpdateBulletsDisplay;
+            _gun.Reload -= ResetAll;
+        }
     }
 }

@@ -1,51 +1,61 @@
+using System;
+using UI;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class CrystalCollector : MonoBehaviour
+namespace Crystals
 {
-    public UnityAction<int, int> ValueChanged;
-    public UnityAction<bool> AllCollected;
-
-    private Crystal[] _crystals;
-    private int _crystalCount = 0;
-    private int _crystalsCollected = 0;
-
-    private void Start()
+    public class CrystalCollector : MonoBehaviour
     {
-        ResetGame.ResetLevel += ResetCrystals;
-        _crystals = GetComponentsInChildren<Crystal>();
-        _crystalCount = _crystals.Length;
-        ValueChanged?.Invoke(_crystalsCollected, _crystalCount);
-    }
+        public Action<int, int> CrystalCountChanged;
+        public static Action AllCollected;
 
-    public void Collect()
-    {
-        _crystalsCollected++;
-        ValueChanged?.Invoke(_crystalsCollected, _crystalCount);
+        private Crystal[] _crystals;
+        private int _crystalCount;
+        private int _crystalsCollected;
 
-        TryFinidhGame();
-    }
+        private void Start()
+        {
+            Crystal.CollectCrystal += CollectCrystal;
+            ResetGame.ResetLevel += ResetCrystals;
+            
+            _crystals = GetComponentsInChildren<Crystal>();
+            _crystalCount = _crystals.Length;
+            CrystalCountChanged?.Invoke(_crystalsCollected, _crystalCount);
+        }
+
+        private void CollectCrystal(Crystal crystal)
+        {
+            crystal.gameObject.SetActive(false);
+        
+            _crystalsCollected++;
+            CrystalCountChanged?.Invoke(_crystalsCollected, _crystalCount);
+
+            TryFinishGame();
+        }
     
-    private void TryFinidhGame()
-    {
-        if (_crystalsCollected == _crystalCount)
+        private void TryFinishGame()
         {
-            AllCollected?.Invoke(true);
+            if (_crystalsCollected == _crystalCount)
+            {
+                AllCollected?.Invoke();
+            }
         }
-    }
 
-    private void ResetCrystals()
-    {
-        foreach (Crystal crystal in _crystals)
+        private void ResetCrystals()
         {
-            crystal.gameObject.SetActive(true);
+            foreach (var crystal in _crystals)
+            {
+                crystal.gameObject.SetActive(true);
+            }
+            
             _crystalsCollected = 0;
-            ValueChanged?.Invoke(_crystalsCollected, _crystalCount);
+            CrystalCountChanged?.Invoke(_crystalsCollected, _crystalCount);
         }
-    }
 
-    private void OnDestroy()
-    {
-        ResetGame.ResetLevel -= ResetCrystals;
+        private void OnDestroy()
+        {
+            Crystal.CollectCrystal -= CollectCrystal;
+            ResetGame.ResetLevel -= ResetCrystals;
+        }
     }
 }

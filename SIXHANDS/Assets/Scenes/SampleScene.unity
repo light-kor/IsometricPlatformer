@@ -4270,7 +4270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 248123922}
   _anim: {fileID: 8457174387608908710}
-  _force: 3
+  _force: 1.5
   _workTime: 5
   _cooldownTime: 10
 --- !u!43 &248838457
@@ -7428,7 +7428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 1867185572}
-  _collector: {fileID: 919135623}
+  _crystalCollector: {fileID: 919135623}
 --- !u!4 &385620198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4491666398347887846, guid: 1ab95b0c9e7e10a4da254f43c23469f2, type: 3}
@@ -16450,7 +16450,7 @@ MonoBehaviour:
   _shootPoint: {fileID: 606542208}
   _lineRenderer: {fileID: 820235476}
   _workTime: 1.5
-  _cooldownTime: 10
+  _cooldownTime: 5
   _damage: 2
 --- !u!120 &820235476
 LineRenderer:
@@ -19479,8 +19479,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1216c51802f35654bad7e9ceb2a6e627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _laser: {fileID: 820235475}
   _bar: {fileID: 1016447407}
+  _laserGun: {fileID: 820235475}
 --- !u!43 &1023950001
 Mesh:
   m_ObjectHideFlags: 0
@@ -30871,9 +30871,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 180053012}
-  _bullets: {fileID: 2106195111}
+  _bulletContainer: {fileID: 2106195111}
   _maxAmmo: 10
   _reloadTime: 4
+  _damage: 10
 --- !u!1 &1568013503
 GameObject:
   m_ObjectHideFlags: 0
@@ -31828,7 +31829,6 @@ GameObject:
   - component: {fileID: 1692755865}
   - component: {fileID: 1692755864}
   - component: {fileID: 1692755866}
-  - component: {fileID: 1692755868}
   - component: {fileID: 1692755867}
   m_Layer: 0
   m_Name: EventSystem
@@ -31891,6 +31891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
@@ -31907,18 +31908,6 @@ MonoBehaviour:
   m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
---- !u!114 &1692755868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692755862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3e89ae663c23064ca3eb639c68e3e6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1697358258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37518,7 +37507,6 @@ MonoBehaviour:
   _infoPanel: {fileID: 894217428}
   _positiveText: {fileID: 561569556}
   _negativeText: {fileID: 1568013503}
-  _crystalCollector: {fileID: 919135623}
   _player: {fileID: 4997331146298796}
 --- !u!43 &2003873077
 Mesh:
@@ -39337,9 +39325,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106195110}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00007849935, y: 0.49999958, z: -0.25007927}
-  m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -45510,7 +45498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7b4492029c506243826a93b98dfa41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startHealth: 5
+  _startHealthValue: 50
 --- !u!54 &4997331146298799
 Rigidbody:
   m_ObjectHideFlags: 0
